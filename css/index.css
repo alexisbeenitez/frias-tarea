@@ -1,0 +1,117 @@
+/* Base & layout */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #fbf9ff;
+  margin: 0;
+  color: #333;
+}
+
+.container {
+  display: flex;
+  gap: 28px;
+  padding: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.panel {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+#configForm { width: 320px; display:flex; flex-direction:column; gap:8px; }
+
+h2 { color: #6a5acd; text-align:center; margin:0 0 8px 0; }
+
+label { font-weight:600; margin-top:8px; }
+small { color:#777; font-size:12px; }
+
+select, button {
+  padding:10px;
+  border-radius:10px;
+  border:none;
+  background:#f3ebff;
+  font-size:14px;
+}
+
+#miembrosSelect, #jugadoresBuscamina {
+  min-height:110px;
+  max-height:220px;
+  overflow:auto;
+  background:#faf7ff;
+}
+
+.botones { display:flex; gap:10px; margin-top:12px; }
+button { background:#b39ddb; color:white; cursor:pointer; }
+button:hover { background:#9575cd; }
+
+/* Visual panel */
+.visual { flex:1; min-width:420px; max-width:980px; display:flex; flex-direction:column; align-items:center; gap:12px; }
+
+.mesa-container { width:320px; height:320px; display:flex; align-items:center; justify-content:center; position:relative; }
+.mesa {
+  width:300px; height:300px;
+  background-color:#f8bbd0; border-radius:50%;
+  position:relative; transition:all .3s;
+}
+.mesa.cuadrada { border-radius:12px; }
+
+/* Asientos */
+.persona {
+  position:absolute;
+  width:48px; height:48px;
+  border-radius:50%;
+  background:#cba4ef; color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700; font-size:12px;
+  box-shadow:0 3px 8px rgba(0,0,0,0.08);
+  transform:translate(-50%,-50%);
+  text-align:center;
+  padding:4px;
+}
+.persona.anfitrion { background:#81c784; }
+.persona.restringido { background:#ef9a9a; }
+
+/* Resultado */
+.resultado { text-align:center; font-size:15px; color:#333; margin-top:6px; }
+
+/* Buscamina */
+.buscamina.hidden { display:none; }
+.buscamina-info { text-align:center; margin-bottom:8px; color:#333; }
+.buscamina-grid {
+  display:grid;
+  grid-template-columns: repeat(30, 16px);
+  grid-template-rows: repeat(30, 16px);
+  gap:2px;
+  justify-content:center;
+  max-width:100%;
+  overflow:auto;
+  padding:8px;
+  background:transparent;
+}
+
+.celda {
+  width:16px; height:16px;
+  background:#e1bee7;
+  border-radius:4px;
+  cursor:pointer;
+  user-select:none;
+  font-size:11px;
+  display:flex; align-items:center; justify-content:center;
+  line-height:1;
+}
+.celda.revelada { background:#c8e6c9; } /* verde pastel para sin mina */
+.celda.mina { background:#f44336; color:white; }
+.celda.bandera { background:#ffd54f; }
+
+/* Responsividad */
+@media (max-width:900px) {
+  .container { padding:12px; gap:12px; }
+  #configForm { width:100%; }
+  .visual { min-width:100%; max-width:100%; }
+  .mesa-container { width:260px; height:260px; }
+  .mesa { width:240px; height:240px; }
+}
+
