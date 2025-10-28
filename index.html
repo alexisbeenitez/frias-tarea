@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Disposiciones Directiva — PRO</title>
+  <link rel="icon" href="Imagen de WhatsApp 2025-10-28 a las 14.08.42_aff3f502.jpg">
+
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+  <div class="container">
+    <form id="configForm" class="panel">
+      <h2>Configuración de Comisión Directiva 🪑</h2>
+
+      <label>Tipo de mesa:</label>
+      <select id="tipoMesa" required>
+        <option value="redonda">Redonda</option>
+        <option value="cuadrada">Cuadrada</option>
+      </select>
+
+      <label>Miembros presentes:</label>
+      <select id="miembrosSelect" multiple size="9">
+        <option>Presidente</option>
+        <option>Vicepresidente 1</option>
+        <option>Vicepresidente 2</option>
+        <option>Secretario General</option>
+        <option>Secretario De Actas</option>
+        <option>Secretario De Relaciones Institucionales</option>
+        <option>Prosecretario</option>
+        <option>Tesorero</option>
+        <option>Protesorero</option>
+        <option>Vocal Titular 1</option>
+        <option>Vocal Titular 2</option>
+        <option>Vocal Titular 3</option>
+        <option>Vocal Suplente 1</option>
+        <option>Vocal Suplente 2</option>
+        <option>Vocal Suplente 3</option>
+        <option>Responsable De Tesoreria Adjunta</option>
+        <option>Responasable De Prensa y Comunicacion</option>
+        <option>Responsable De Eventos yProyectos</option>
+        <option>Responsable De Infraestructura y Mantenimiento</option>
+        <option>Responsable DE Tesoreria De Socios</option>
+      </select>
+      <small>Ctrl/Cmd+Click para seleccionar varios — el Presidente siempre debe estar presente (se añade si falta)</small>
+
+      <label>Asiento del Presidente (elige el índice):</label>
+      <select id="presidenteAsiento"></select>
+
+      <label>Invitado que no puede sentarse al lado ni frente del Presidente:</label>
+      <select id="restr1">
+        <option value="">(ninguno)</option>
+      </select>
+
+      <label>Segundo invitado restringido (opcional):</label>
+      <select id="restr2">
+        <option value="">(ninguno)</option>
+      </select>
+
+      <label>Modo de operación:</label>
+      <select id="modo">
+        <option value="conteo">Solo conteo de disposiciones</option>
+        <option value="listar">Listar disposiciones</option>
+        <option value="buscamina">Jugar Buscamina</option>
+      </select>
+
+      <label>Seleccionar jugadores para Buscamina (solo si elegiste Buscamina):</label>
+      <select id="jugadoresBuscamina" multiple size="6"></select>
+      <small>Si no se selecciona nadie, juegan todos los miembros.</small>
+
+      <div class="botones">
+        <button type="button" id="guardarBtn">Iniciar</button>
+        <button type="button" id="reiniciarBtn">Reiniciar</button>
+      </div>
+    </form>
+
+    <div class="panel visual">
+      <h2>Visualización</h2>
+
+      <div id="mesaContainer" class="mesa-container">
+        <div id="mesa" class="mesa" aria-hidden="true"></div>
+      </div>
+
+      <div id="resultado" class="resultado"></div>
+
+      <div id="buscaminaContainer" class="buscamina hidden">
+        <div class="buscamina-info">
+          ⏱️ Tiempo: <span id="tiempo">0</span>s |
+          💣 Minas restantes: <span id="minasRestantes">0</span>
+        </div>
+        <div id="buscaminaTablero" class="buscamina-grid" tabindex="0" aria-label="Tablero buscaminas"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/index.js"></script>
+</body>
+</html>
+
